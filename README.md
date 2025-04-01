@@ -30,7 +30,7 @@ Setup
 
 We conduct experiments on [ConvMix](https://convinse.mpi-inf.mpg.de/), a ConvQA benchmark over heterogeneous sources.
 
-All code was tested on Linux with Python 3.12. 
+All code was tested on Linux with Python 3.12.
 <!--The relevant software and libraries include the following:
 
 * Python 3.12
@@ -62,7 +62,7 @@ To install the required libraries, it is recommended to create a virtual environ
    source PRAISE_ENV/bin/activate
    pip install -r requirements.txt
   
-   # using Conda
+   # using conda
    conda create --name PRAISE_ENV --file requirements.txt
    conda activate PRAISE_ENV
 ```
@@ -78,7 +78,7 @@ bash initialize.sh
 
 ### Dependencies
 
-For the retrieval part, we make use of EXPLAIGNN and CLOCQ: 
+For the retrieval, we make use of EXPLAIGNN and CLOCQ: 
 
 1. Create a separate virtual environment for EXPLAIGNN:
 
@@ -89,8 +89,7 @@ conda activate explaignn
 pip install -e .
 ```
 
-2. Integrate CLOCQ:
-CLOCQ can be integrated via the [publicly available API](https://clocq.mpi-inf.mpg.de), using the client from [the repo](https://github.com/PhilippChr/CLOCQ), it can be installed via:
+2. Integrate CLOCQ via the [publicly available API](https://clocq.mpi-inf.mpg.de), using the client from [the repo](https://github.com/PhilippChr/CLOCQ), it can be installed via:
 
 ```
 bash make install_clocq
@@ -111,7 +110,7 @@ Run the trained praise pipeline in inference mode:
 ```
 bash scripts/run_pipeline.sh --inference configs/pipeline_config.yml GPU GPU_NUM
 ```
-with ``GPU`` the respective GPU used for running PRAISE and ``GPU_NUM`` the type and number of gpus to use (e.g. A100:2)
+with ``GPU`` indicating the respective GPU used for running PRAISE and ``GPU_NUM`` the type and number of gpus to use (e.g. A100:2)
 
 
 
@@ -124,4 +123,4 @@ For training, run:
 bash scripts/run_COMPONENT.sh  configs/COMPONENT_train_config.yml GPU GPU_NUM
 ```
 
-where COMPONENT can be either ``qu`` (Question Understanding), ``erf`` (Evidence Retrieval and Filtering) or ``ag`` (Answer Generation)
+where COMPONENT can be either ``qu`` (Question Understanding), ``erf`` (Evidence Retrieval and Filtering) or ``ag`` (Answer Generation).
