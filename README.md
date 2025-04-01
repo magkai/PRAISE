@@ -8,7 +8,7 @@ This repository contains the code and data for our WWW'25 short paper. Our metho
       Learning with Retrieval Augmented Iterative SEquence generation for ConvQA), is a pipeline architecture, consisting of <i>question understanding (QU)</i>, <i>evidence retrieval and filtering (ERF)</i> and <i>answer generation (AG)</i>.  We train  LLMs for each of the three subtasks. Since labeled training data for individual subtasks is unavailable in practice, PRAISE learns from its own generations using the final answering performance as feedback. More precisely, PRAISE samples generations from an initial model and learns from pairing successful and unsuccessful generations using <i>Direct Preference Optimization (DPO)</i>.
      
 
-<center><img src="praise_overview.png" alt="Overview of PRAISE" width=80%></center>
+<center><img src="praise_overview.jpg" alt="Overview of PRAISE" width=90%></center>
 
 *Overview and illustration of PRAISE (preferred/correct outputs are in blue, incorrect/uninformative outputs in red).*
 
