@@ -1,0 +1,35 @@
+#################################################################
+#  Parameters - PRAISE
+#################################################################
+
+hf_token: "your Huggingface access token"
+#llama_version: 3
+tokenizer_path: "meta-llama/Meta-Llama-3-8B-Instruct"
+qu_model_path:  "meta-llama/Meta-Llama-3-8B-Instruct"
+qu_peft_model_path: "models/QU/QU_praise/"
+qu_adapter_name: "qu_adapter"
+
+model_save_path: "models/QU/QU_praise/"
+model_warmup_steps: 150
+model_max_length: 512
+model_max_prompt_length: 437
+model_max_target_length: 75
+model_num_epochs: 1
+model_batch_size: 1
+model_eval_batch_size: 1
+model_learningrate: 0.000001
+allSamples: True
+top_k: 50
+train: "train"
+train_type: DPO
+peft: True
+peft_ref: False
+pad: True
+sample_size: 5
+
+feedback_qu_path: "data/train/QU_praise/sampling/QU_init/ERF_init/AG_init/ag_train_.json"
+input_qu_train_path: "data/train/QU_praise/feedback_data.json"
+preference_data_path: "data/train/QU_praise/qu_preference.json"
+input_qu_inference_path: "benchmark/dev_set_ALL.json"
+output_qu_inference_path: "data/eval/QU_praise/qu_dev.json"
+

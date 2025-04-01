@@ -1,0 +1,34 @@
+#################################################################
+#  Parameters - PRAISE
+#################################################################
+
+hf_token: "your Huggingface access token"
+#llama_version: 3
+tokenizer_path: "meta-llama/Meta-Llama-3-8B-Instruct"
+ag_model_path:  "meta-llama/Meta-Llama-3-8B-Instruct"
+ag_adapter_name: "ag_adapter"
+
+model_save_path: "models/AG/AG_praise"
+model_warmup_ratio: 0.01
+model_max_length: 512
+model_max_target_length: 75
+model_num_epochs: 1
+model_batch_size: 1
+model_eval_batch_size: 1
+model_learningrate: 0.000001
+top_k: 50
+train: "train"
+train_type: SFT
+peft: True
+pad: True
+
+sample_size: 5
+
+input_ag_train_path: "data/train/QU_praise/sampling/QU_init/ERF_init/erf_train_.jsonl"
+sft_data_path: "data/train/AG_praise/ag_sft_data.json"
+
+input_ag_inference_path: "data/eval/QU_praise/ERF_praise/erf_dev.jsonl"
+output_ag_inference_path: "data/eval/QU_praise/ERF_praise/AG_praise/ag_dev.json"
+
+
+

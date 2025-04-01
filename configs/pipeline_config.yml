@@ -1,0 +1,85 @@
+#################################################################
+#  Parameters - PRAISE
+#################################################################
+
+hf_token: "your Huggingface access token"
+#llama_version: 3
+tokenizer_path: "meta-llama/Meta-Llama-3-8B-Instruct"
+qu_model_path:  "meta-llama/Meta-Llama-3-8B-Instruct"
+qu_peft_model_path: "models/QU/QU_praise/checkpoint-19826/trainedSFT"
+qu_adapter_name: "qu_adapter"
+
+erf_model_path:  "meta-llama/Meta-Llama-3-8B-Instruct"
+erf_peft_model_path: "models/ERF/ERF_praise/checkpoint-1296/trainedSFT"
+erf_adapter_name: "erf_adapter"
+
+ag_model_path:  "meta-llama/Meta-Llama-3-8B-Instruct"
+ag_peft_model_path: "models/AG/AG_praise/checkpoint-41876"
+ag_adapter_name: "ag_adapter"
+
+top_k: 50
+train: "eval"
+peft: True
+pad: True
+
+sbert: True
+
+input_qu_inference_path: "benchmark/dev_set_ALL.json"
+output_qu_inference_path: "data/eval/QU_praise/qu_dev.json"
+evidence_inference_path: "data/eval/QU_praise/ERF_praise/evidence_dev.jsonl"
+input_erf_inference_path: "data/eval/QU_praise/qu_dev.json"
+output_erf_inference_path: "data/eval/QU_praise/ERF_praise/erf_dev.jsonl"
+input_ag_inference_path: "data/eval/QU_praise/ERF_praise/erf_dev.jsonl"
+output_ag_inference_path: "data/eval/QU_praise/ERF_praise/AG_praise/ag_dev.json"
+
+
+#################################################################
+#  Parameters - EXPLAIGNN
+#################################################################
+qu: rewrite
+ers: rers
+ha: seq2seq
+name: "praise_evidence_retrieval"
+log_level: "INFO"
+
+path_to_stopwords: "../EXPLAIGNN/_data/stopwords.txt"
+path_to_labels: "../EXPLAIGNN/_data/labels.pickle"
+path_to_types: "../EXPLAIGNN/_data/types.pickle"
+path_to_wikipedia_mappings: "../EXPLAIGNN/_data/wikipedia_mappings.pickle"
+path_to_wikidata_mappings: "../EXPLAIGNN/_data/wikidata_mappings.pickle"
+
+naive_concat: "completed"
+
+ers_use_cache: False
+ers_cache: "../EXPLAIGNN/_data/convmix/kb/er_cache_clocq5.pickle"
+ers_wikipedia_dump: "../EXPLAIGNN/_data/convmix/wikipedia_dump.pickle"
+ers_wikipedia_to_wikidata_links_cache: "../EXPLAIGNN/_data/convmix/cache_wikipedia_to_wikidata_links.pickle"
+ers_on_the_fly: True
+
+# evidence retrieval
+evr_min_evidence_length: 3
+evr_max_evidence_length: 200
+evr_max_entities: 10 # max entities per evidence
+
+# evidence scoring
+evs_max_evidences: 200
+gnn_train_max_pos_evidences: 200
+
+
+#################################################################
+#  Parameters - CLOCQ
+#################################################################
+clocq_params:
+  h_match: 0.4
+  h_rel: 0.2
+  h_conn: 0.3
+  h_coh: 0.1
+  d: 20
+  k: 5
+  p_setting: 1000 # setting for search_space function
+  bm25_limit: False
+clocq_p: 1000 #  setting for neighborhood function(s) 
+clocq_use_api: True # using CLOCQClientInterface
+clocq_host: "https://clocq.mpi-inf.mpg.de/api" # host for client
+clocq_port: "443" # port for client
+

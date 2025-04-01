@@ -1,0 +1,35 @@
+#################################################################
+#  Parameters - PRAISE
+#################################################################
+
+hf_token: "your Huggingface access token"
+#llama_version: 3
+tokenizer_path: "meta-llama/Meta-Llama-3-8B-Instruct"
+erf_model_path:  "meta-llama/Meta-Llama-3-8B-Instruct"
+erf_peft_model_path: "models/ERF/ERF_sft/checkpoint-70233"
+erf_adapter_name: "erf_adapter"
+
+model_save_path: "models/ERF/ERF_praise/"
+model_warmup_steps: 150
+#model_max_length: 512
+model_max_target_length: 75
+model_num_epochs: 1
+model_batch_size: 1
+model_eval_batch_size: 1
+model_learningrate: 0.000001
+top_k: 50
+train: "train"
+train_type: DPO
+peft: True
+peft_ref: True
+pad: True
+
+output_qu_inference_path: "data/eval/QU_praise/qu_dev.json"
+evidence_train_path: "data/eval/QU_praise/ERF_praise/evidence_train.jsonl"
+evidence_inference_path: "data/eval/QU_praise/ERF_praise/evidence_dev.jsonl"
+input_erf_train_path:  "data/train/ERF_praise/sampling/ERF_sft/AG_init/ag_train.json"
+preference_data_path:  "data/train/ERF_praise/erf_preference_data.json" 
+input_erf_inference_path: "data/eval/QU_praise/qu_dev.json"
+output_erf_inference_path: "data/eval/QU_praise/ERF_praise/erf_dev.jsonl"
+
+
